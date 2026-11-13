@@ -1,0 +1,2738 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DKM Masjid Nashrul Fattah - Perumahan Alam Hijau Jember</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#FFE066',
+                            500: '#FFC700',
+                            600: '#D4AF37',
+                            700: '#B8860B',
+                        },
+                        dark: {
+                            900: '#0F0F10',
+                            800: '#18181A',
+                            700: '#242427',
+                            600: '#2E2E33',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Amiri', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFE066 0%, #FFC700 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-image: linear-gradient(to right, #FFC700, #D4AF37) 1;
+        }
+        .bg-pattern {
+            background-color: #0F0F10;
+            background-image: radial-gradient(#FFC700 0.75px, transparent 0.75px), radial-gradient(#FFC700 0.75px, #0F0F10 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            background-opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-dark-900">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-dark-800/90 backdrop-blur-md border-b border-gold-500/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-3 group">
+                    <div class="relative group/logo cursor-pointer" onclick="document.getElementById('logo-file-input').click()" title="Klik untuk ganti logo">
+                        <img id="header-logo-img" src="MNF.jpg" alt="Logo Masjid Nashrul Fattah" class="h-12 w-12 rounded-full border-2 border-gold-500 shadow-md transform group-hover/logo:scale-105 transition duration-300 object-cover" onerror="this.src='https://placehold.co/100x100/FFC700/000000?text=MNF'">
+                        <div class="absolute inset-0 bg-black/60 rounded-full flex items-center justify-center opacity-0 group-hover/logo:opacity-100 transition duration-200">
+                            <i class="fa-solid fa-camera text-gold-400 text-xs"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight block font-arabic text-gold-400 leading-none">مسجد نصر الفتاح</span>
+                        <a href="#beranda" class="block text-lg font-bold text-white tracking-wide leading-tight hover:text-gold-500 transition">MASJID NASHRUL FATTAH</a>
+                        <span class="block text-xs text-gold-500 font-medium tracking-wider">Perumahan Alam Hijau Jember</span>
+                    </div>
+                </div>
+
+                <!-- Hidden Input File for Logo Upload -->
+                <input type="file" id="logo-file-input" accept="image/*" onchange="handleLogoUpload(event)" class="hidden">
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-5 text-sm font-medium">
+                    <a href="#beranda" onclick="switchView('beranda')" class="nav-link px-2 py-2 text-gold-400 font-semibold hover:text-gold-500 transition">Beranda</a>
+                    <a href="#jadwal-shalat" onclick="switchView('jadwal-shalat')" class="nav-link px-2 py-2 text-gold-400 font-semibold hover:text-gold-500 transition flex items-center gap-1">
+                        <i class="fa-solid fa-clock-rotate-left text-xs"></i> Jadwal Shalat & Imam
+                    </a>
+                    <a href="#jadwal-jumat" onclick="switchView('jadwal-jumat')" class="nav-link px-2 py-2 text-gold-400 font-semibold hover:text-gold-500 transition flex items-center gap-1">
+                        <i class="fa-solid fa-kaaba text-xs"></i> Petugas Shalat Jum'at
+                    </a>
+                    <a href="#kajian-agenda" onclick="switchView('kajian-agenda')" class="nav-link px-2 py-2 text-gold-400 font-semibold hover:text-gold-500 transition flex items-center gap-1">
+                        <i class="fa-solid fa-calendar-days text-xs"></i> Kajian & Agenda
+                    </a>
+                    <a href="#laporan-keuangan" onclick="switchView('laporan-keuangan')" class="nav-link px-2 py-2 text-gold-400 font-semibold hover:text-gold-500 transition flex items-center gap-1">
+                        <i class="fa-solid fa-file-invoice-dollar text-xs"></i> Laporan Keuangan
+                    </a>
+                    <a href="#struktur-organisasi" onclick="switchView('struktur-organisasi')" class="nav-link px-2 py-2 text-gold-400 font-semibold hover:text-gold-500 transition flex items-center gap-1">
+                        <i class="fa-solid fa-sitemap text-xs"></i> Struktur Organisasi
+                    </a>
+                </nav>
+
+                <!-- Action Button Desktop -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <button onclick="openInfaqModal()" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-dark-900 font-bold px-5 py-2.5 rounded-full shadow-lg hover:shadow-gold-500/20 transition duration-300 flex items-center space-x-2">
+                        <i class="fa-solid font-bold fa-hand-holding-dollar"></i>
+                        <span>Infaq Online</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gold-500 hover:bg-dark-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gold-500/20 px-4 pt-2 pb-6 space-y-2">
+            <a href="#beranda" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-dark-700 hover:text-gold-500">Beranda</a>
+            <a href="#jadwal-shalat" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gold-400 font-semibold hover:bg-dark-700 hover:text-gold-500">Jadwal Shalat & Imam</a>
+            <a href="#jadwal-jumat" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gold-400 font-semibold hover:bg-dark-700 hover:text-gold-500">Jadwal Petugas Shalat Jum'at</a>
+            <a href="#kajian-agenda" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gold-400 font-semibold hover:bg-dark-700 hover:text-gold-500">Kajian & Agenda</a>
+            <a href="#laporan-keuangan" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gold-400 font-semibold hover:bg-dark-700 hover:text-gold-500">Laporan Keuangan</a>
+            <a href="#struktur-organisasi" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gold-400 font-semibold hover:bg-dark-700 hover:text-gold-500">Struktur Organisasi</a>
+            <div class="pt-2">
+                <button onclick="openInfaqModal()" class="w-full bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-3 rounded-xl flex justify-center items-center space-x-2">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>Infaq / Donasi Online</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative py-16 lg:py-24 overflow-hidden bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content Left -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-dark-800 border border-gold-500/30 px-4 py-2 rounded-full mb-6">
+                        <span class="w-2.5 h-2.5 rounded-full bg-gold-500 animate-pulse"></span>
+                        <span class="text-xs sm:text-sm text-gold-400 font-medium">Selamat Datang di Portal Resmi DKM</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4">
+                        Masjid <span class="gold-gradient-text">Nashrul Fattah</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 font-lightbold mb-2">
+                        Perumahan Alam Hijau
+                    </p>
+                    <p class="font-arabic text-xl sm:text-2xl text-gold-400 mb-1">إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ</p>
+                    <p class="text-amber-100/70 font-serif italic text-lg mb-8">
+                        "Hanya yang memakmurkan masjid-masjid Allah ialah orang-orang yang beriman kepada Allah dan Hari kemudian." (QS. At-Taubah: 18)
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="openInfaqModal()" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-gold-500/10 transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-qrcode text-lg"></i>
+                            <span>Infaq Digital QRIS</span>
+                        </button>
+                        <a href="#jadwal-shalat" class="w-full sm:w-auto border border-gold-500/50 hover:bg-gold-500/10 text-gold-400 font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Jadwal Shalat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Banner / Logo Display Right -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group cursor-pointer" onclick="document.getElementById('logo-file-input').click()" title="Klik untuk mengunggah logo baru">
+                        <!-- Glow effect -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold-500 to-amber-600 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                        
+                        <div class="relative bg-dark-800 p-4 sm:p-6 rounded-full border-4 border-gold-500 shadow-2xl">
+                            <img id="hero-logo-img" src="MNF.jpg" alt="Logo Masjid Nashrul Fattah" class="w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover shadow-inner" onerror="this.src='https://placehold.co/300x300/FFC700/000000?text=Masjid+Nashrul+Fattah'">
+                            <div class="absolute inset-0 bg-black/50 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                <i class="fa-solid fa-camera text-3xl text-gold-400 mb-2"></i>
+                                <span class="text-xs font-bold text-white bg-dark-900/80 px-3 py-1 rounded-full border border-gold-500/40">Ganti Foto Logo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION VISI & MISI (Menu Beranda) -->
+    <section class="py-14 bg-pattern border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold-500 font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-compass"></i> Landasan & Tujuan DKM
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Visi & Misi Masjid Nashrul Fattah</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Komitmen dalam memakmurkan rumah Allah dan membina ukhuwah warga Perumahan Alam Hijau Jember</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Visi Card -->
+                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/30 hover:border-gold-500/70 transition shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gold-400 mb-2">Visi Masjid</h3>
+                        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed italic">
+                            "Menjadikan Masjid Nashrul Fattah sebagai pusat ibadah, pembinaan umat, dan perekat ukhuwah Islamiyah yang bertaqwa, mandiri, serta berakhlakul karimah."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dark-700 text-[11px] text-gold-500 font-medium">
+                        <i class="fa-solid fa-star me-1"></i> Arah & Tujuan Utama
+                    </div>
+                </div>
+
+                <!-- Misi Card -->
+                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/30 hover:border-gold-500/70 transition shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gold-400 mb-2">Misi Masjid </h3>
+                        <ul class="text-xs sm:text-sm text-gray-300 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-500 mt-0.5"></i>
+                                <span>Menyelenggarakan shalat berjamaah 5 waktu dan Jum'at secara tertib dan khusyuk.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-500 mt-0.5"></i>
+                                <span>Mengadakan kajian rutin keislaman untuk meningkatkan pemahaman agama jamaah.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-500 mt-0.5"></i>
+                                <span>Mengelola keuangan dan sosial umat secara transparan, amanah, dan tepat sasaran.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dark-700 text-[11px] text-gold-500 font-medium">
+                        <i class="fa-solid fa-star me-1"></i> Program Kerja Berkelanjutan
+                    </div>
+                </div>
+
+                <!-- Motto Card -->
+                <div class="bg-dark-900 p-6 rounded-2xl border border-gold-500/30 hover:border-gold-500/70 transition shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gold-400 mb-2">Tagline :</h3>
+                        <div class="bg-dark-800 p-4 rounded-xl border border-gold-500/20 mb-3 text-center">
+                            <span class="block text-white font-extrabold text-sm tracking-wider gold-gradient-text">SATU SHAF</span>
+                            <span class="block text-white font-extrabold text-sm tracking-wider gold-gradient-text my-1">SATU HATI</span>
+                            <span class="block text-white font-extrabold text-sm tracking-wider gold-gradient-text">SATU TUJUAN</span>
+                        </div>
+                        <p class="text-xs text-gray-400">
+                            Mewujudkan solidaritas dan kekompakan jamaah dalam setiap kegiatan peribadatan dan sosial kemasyarakatan.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-dark-700 text-[11px] text-gold-500 font-medium">
+                        <i class="fa-solid fa-star me-1"></i> Pedoman Jamaah
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Prayer Times & Digital Clock Section -->
+    <section id="jadwal-shalat" class="py-12 bg-dark-800 border-y border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="text-gold-500 font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-mosque"></i> Integrasi Real-Time API Aladhan / Kemenag RI
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Jadwal Shalat & Imam Rawatib</h2>
+                <p id="current-location-text" class="text-gold-400 font-medium text-sm mt-1">
+                    <i class="fa-solid fa-location-dot me-1"></i> Perumahan Alam Hijau, Jember, Jawa Timur
+                </p>
+                <p id="current-date-hijri" class="text-gray-400 text-xs sm:text-sm mt-0.5">Memuat Kalender Hijriah...</p>
+            </div>
+
+            <!-- Controls: Location Selector & Audio Adzan Toggle -->
+            <div class="max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-3 bg-dark-900/90 p-3 sm:p-4 rounded-2xl border border-gold-500/30 shadow-md">
+                <div class="flex items-center space-x-2 w-full sm:w-auto">
+                    <button onclick="getUserLocation()" title="Deteksi Lokasi Otomatis" class="bg-gold-500 hover:bg-gold-400 text-dark-900 text-xs font-bold px-3 py-2 rounded-xl transition flex items-center space-x-1.5 shrink-0">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <span class="hidden xs:inline">Deteksi GPS</span>
+                    </button>
+                    <select id="city-select" onchange="onCityChange(this.value)" class="bg-dark-800 text-gray-200 text-xs sm:text-sm border border-gold-500/40 rounded-xl px-3 py-2 outline-none focus:border-gold-400 w-full sm:w-56">
+                        <option value="Jember,ID" selected>Kab. Jember (Jawa Timur)</option>
+                        <option value="Surabaya,ID">Kota Surabaya</option>
+                        <option value="Banyuwangi,ID">Kab. Banyuwangi</option>
+                        <option value="Lumajang,ID">Kab. Lumajang</option>
+                        <option value="Probolinggo,ID">Kab. Probolinggo</option>
+                        <option value="Malang,ID">Kota Malang</option>
+                        <option value="Jakarta,ID">DKI Jakarta</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center space-x-3 justify-between w-full sm:w-auto">
+                    <div class="flex items-center space-x-2">
+                        <button id="adzan-toggle-btn" onclick="toggleAdzanAudio()" class="bg-dark-800 hover:bg-dark-700 text-gold-400 border border-gold-500/40 text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center space-x-2">
+                            <i id="adzan-icon" class="fa-solid fa-volume-high text-gold-500"></i>
+                            <span id="adzan-status-text">Audio Adzan: AKTIF</span>
+                        </button>
+                    </div>
+                    <button onclick="fetchPrayerTimesData()" class="bg-dark-800 hover:bg-dark-700 text-gray-300 border border-dark-600 text-xs px-2.5 py-2 rounded-xl transition" title="Refresh Jadwal">
+                        <i class="fa-solid fa-rotate"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Real-time Clock & Next Prayer Counter Card -->
+            <div class="bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 rounded-2xl p-6 mb-8 border-2 border-gold-500/40 shadow-2xl max-w-4xl mx-auto relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <!-- Live Time -->
+                    <div class="text-center md:text-left">
+                        <span class="text-xs text-gold-400 font-semibold tracking-wider uppercase flex items-center justify-center md:justify-start gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Jam Real-Time (WIB)
+                        </span>
+                        <div id="live-clock" class="text-4xl sm:text-5xl font-mono font-extrabold text-white mt-1 tracking-tight">00:00:00</div>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1" id="gregorian-date">Memuat tanggal...</p>
+                    </div>
+
+                    <!-- Next Prayer Countdown -->
+                    <div class="bg-dark-800/90 p-4 sm:p-5 rounded-2xl border border-gold-500/30 text-center shadow-inner">
+                        <span class="text-xs text-gray-300 uppercase tracking-wider block">
+                            Menuju Waktu <span id="next-prayer-name" class="text-gold-400 font-extrabold text-sm underline decoration-gold-500">Subuh</span>
+                        </span>
+                        <div id="countdown-timer" class="text-3xl sm:text-4xl font-mono font-black text-gold-400 mt-1 tracking-wider drop-shadow-md">--:--:--</div>
+                        <p id="next-prayer-time-display" class="text-xs text-gray-400 mt-1">Jam Target: --:-- WIB</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="prayer-loading" class="text-center py-8">
+                <i class="fa-solid fa-circle-notch fa-spin text-3xl text-gold-500"></i>
+                <p class="text-xs text-gray-400 mt-2">Mengambil jadwal shalat real-time dari API Kemenag/Aladhan...</p>
+            </div>
+
+            <!-- Prayer Time Grid Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4 hidden mb-12" id="prayer-times-grid">
+                <!-- Cards will be populated by Javascript -->
+            </div>
+
+            <!-- SUB-SECTION INTEGRATED: Jadwal Imam & Muadzin Shalat Rawatib -->
+            <div class="pt-8 border-t border-gold-500/20">
+                <div class="text-center max-w-3xl mx-auto mb-8">
+                    <span class="text-gold-500 font-semibold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-clipboard-user me-1"></i> Penugasan Imam & Muadzin
+                    </span>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mt-0.5">Petugas Shalat Rawatib (5 Waktu)</h3>
+                    <p class="text-xs text-gray-400">Jadwal Tugas Imam Ratib & Muadzin Harian Masjid Nashrul Fattah</p>
+                </div>
+
+                <!-- Highlight Hari Ini -->
+                <div class="bg-gradient-to-r from-dark-900 via-dark-700 to-dark-900 p-4 sm:p-5 rounded-2xl border border-gold-500/30 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+                    <div class="flex items-center space-x-3 text-center md:text-left">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl shrink-0 mx-auto md:mx-0">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gold-400 font-bold uppercase tracking-wider block">Tugas Hari Ini</span>
+                            <h3 id="current-day-name" class="text-base sm:text-lg font-bold text-white">Selasa (Tugas Berjalan)</h3>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300 flex items-center gap-2 bg-dark-900/80 px-4 py-2 rounded-xl border border-dark-600">
+                        <i class="fa-solid fa-circle-info text-gold-500"></i>
+                        <span>Bagi imam yang berhalangan hadir, wajib mengonfirmasi ke Bidang Ubudiyah H-1.</span>
+                    </div>
+                </div>
+
+                <!-- Cards Grid Shalat 5 Waktu Hari Ini -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    
+                    <!-- Subuh -->
+                    <div class="bg-dark-900 rounded-2xl p-4 border border-gold-500/20 hover:border-gold-500/60 transition shadow-md">
+                        <div class="flex justify-between items-center pb-3 border-b border-dark-700 mb-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-moon text-gold-500"></i>
+                                <span class="font-bold text-white text-sm">Subuh</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2.5 text-xs">
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Imam Ratib</span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Abd. Haris, atau
+                                </span>    
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Ahmad Fajar Shodiq
+                                </span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Muadzin</span>
+                                <span class="text-gray-200 font-medium flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-bullhorn text-gold-500 text-[10px]"></i> Bpk. Ahmad Muhyidin
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dzuhur -->
+                    <div class="bg-dark-900 rounded-2xl p-4 border border-gold-500/20 hover:border-gold-500/60 transition shadow-md">
+                        <div class="flex justify-between items-center pb-3 border-b border-dark-700 mb-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-sun text-gold-500"></i>
+                                <span class="font-bold text-white text-sm">Dzuhur</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2.5 text-xs">
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Imam Ratib</span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Hoiri
+                                </span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Muhklis
+                                </span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Muadzin</span>
+                                <span class="text-gray-200 font-medium flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-bullhorn text-gold-500 text-[10px]"></i> Bpk. Deni F. Saputra
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ashar -->
+                    <div class="bg-dark-900 rounded-2xl p-4 border border-gold-500/20 hover:border-gold-500/60 transition shadow-md">
+                        <div class="flex justify-between items-center pb-3 border-b border-dark-700 mb-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-cloud-sun text-gold-500"></i>
+                                <span class="font-bold text-white text-sm">Ashar</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2.5 text-xs">
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Imam Ratib</span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Sudahri
+                                </span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Nasih Elzuhri
+                                </span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Muadzin</span>
+                                <span class="text-gray-200 font-medium flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-bullhorn text-gold-500 text-[10px]"></i> Bpk. Suryo
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maghrib -->
+                    <div class="bg-dark-900 rounded-2xl p-4 border border-gold-500/20 hover:border-gold-500/60 transition shadow-md">
+                        <div class="flex justify-between items-center pb-3 border-b border-dark-700 mb-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-moon text-gold-500"></i>
+                                <span class="font-bold text-white text-sm">Maghrib</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2.5 text-xs">
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Imam Ratib</span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Ali Husnan
+                                </span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Hamid
+                                </span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Muadzin</span>
+                                <span class="text-gray-200 font-medium flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-bullhorn text-gold-500 text-[10px]"></i> Bpk. Deni F. Saputra
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Isya -->
+                    <div class="bg-dark-900 rounded-2xl p-4 border border-gold-500/20 hover:border-gold-500/60 transition shadow-md">
+                        <div class="flex justify-between items-center pb-3 border-b border-dark-700 mb-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-star text-gold-500"></i>
+                                <span class="font-bold text-white text-sm">Isya</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2.5 text-xs">
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Imam Ratib</span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Aslam
+                                </span>
+                                <span class="text-white font-semibold flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-user-tie text-gold-500 text-[10px]"></i> Ust. Ahmad Fajar Shodiq
+                                </span> 
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block text-[10px] uppercase font-semibold">Muadzin</span>
+                                <span class="text-gray-200 font-medium flex items-center gap-1.5 mt-0.5">
+                                    <i class="fa-solid fa-bullhorn text-gold-500 text-[10px]"></i> Bpk. Herman
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION KABUNGAN: Kajian Rutin & Agenda Kegiatan Masjid -->
+    <section id="kajian-agenda" class="py-16 bg-dark-900 border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold-500 font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-calendar-days"></i> Majelis Ilmu & Kegiatan DKM Nashrul Fattah
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Kajian & Agenda Masjid</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Informasi jadwal kajian rutin, hari besar Islam, sosial, dan kegiatan masjid</p>
+            </div>
+
+            <!-- SUB-SECTION 1: KAJIAN RUTIN -->
+            <div class="mb-16">
+                <div class="flex items-center justify-between mb-6 pb-2 border-b border-gold-500/20">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-book-open-reader text-gold-500"></i> Jadwal Kajian Rutin
+                    </h3>
+                    <div class="relative w-48 sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                        <input type="text" id="search-kajian-input" onkeyup="renderKajianCards()" placeholder="Cari kajian..." class="w-full bg-dark-800 border border-gold-500/30 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white outline-none focus:border-gold-400">
+                    </div>
+                </div>
+
+                <!-- Panel Tambah Kajian Manual -->
+                <div class="bg-dark-800/90 p-6 rounded-2xl border border-gold-500/30 shadow-xl mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-plus text-gold-500"></i> Tambah Jadwal Kajian Rutin
+                        </h4>
+                        <span class="text-[10px] bg-gold-500/20 text-gold-400 px-2.5 py-0.5 rounded-full border border-gold-500/30 font-medium">DKM Dakwah</span>
+                    </div>
+
+                    <form id="kajian-form" onsubmit="handleAddKajian(event)" class="space-y-3 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Judul / Tema Kajian</label>
+                                <input type="text" id="input-kajian-judul" required placeholder="Contoh: Tafsir Jalalain" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Pemateri / Pemimpin</label>
+                                <input type="text" id="input-kajian-pemateri" required placeholder="Contoh: Ust. DR. Ahmad, M.A." class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Waktu / Hari</label>
+                                <input type="text" id="input-kajian-waktu" required placeholder="Ahad Pagi / Ba'da Maghrib" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Kategori</label>
+                                <select id="input-kajian-kategori" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                                    <option value="Tafsir & Al-Qur'an">Tafsir & Al-Qur'an</option>
+                                    <option value="Fiqih & Muamalah">Fiqih & Muamalah</option>
+                                    <option value="Aqidah & Akhlak">Aqidah & Akhlak</option>
+                                    <option value="Hadits & Sunnah">Hadits & Sunnah</option>
+                                    <option value="Tahsin & Tajwid">Tahsin & Tajwid</option>
+                                    <option value="Umum & Tematik">Umum & Tematik</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Peserta</label>
+                                <input type="text" id="input-kajian-peserta" placeholder="Umum (Muslim & Muslimah)" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-dark-900 font-bold py-2.5 rounded-xl transition shadow-md flex items-center justify-center space-x-2 mt-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Publikasikan Jadwal Kajian</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Grid Dynamic Kajian Cards -->
+                <div id="kajian-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Data populated dynamically via JavaScript -->
+                </div>
+            </div>
+
+            <!-- SUB-SECTION 2: AGENDA & KEGIATAN -->
+            <div>
+                <div class="flex items-center justify-between mb-6 pb-2 border-b border-gold-500/20">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-gold-500"></i> Agenda & Kegiatan Masjid
+                    </h3>
+                    <div class="relative w-48 sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                        <input type="text" id="search-agenda-input" onkeyup="renderAgendaCards()" placeholder="Cari agenda..." class="w-full bg-dark-800 border border-gold-500/30 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white outline-none focus:border-gold-400">
+                    </div>
+                </div>
+
+                <!-- Panel Tambah Agenda Manual -->
+                <div class="bg-dark-800/90 p-6 rounded-2xl border border-gold-500/30 shadow-xl mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-plus text-gold-500"></i> Tambah Agenda / Kegiatan Baru
+                        </h4>
+                        <span class="text-[10px] bg-gold-500/20 text-gold-400 px-2.5 py-0.5 rounded-full border border-gold-500/30 font-medium">DKM Sekretariat</span>
+                    </div>
+
+                    <form id="agenda-form" onsubmit="handleAddAgenda(event)" class="space-y-3 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Nama Kegiatan</label>
+                                <input type="text" id="input-agenda-judul" required placeholder="Contoh: Santunan Anak Yatim" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Tanggal Pelaksanaan</label>
+                                <input type="date" id="input-agenda-tanggal" required class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Waktu / Pukul</label>
+                                <input type="text" id="input-agenda-waktu" required placeholder="08.00 - Selesai WIB" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Kategori</label>
+                                <select id="input-agenda-kategori" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                                    <option value="Hari Besar Islam">Hari Besar Islam</option>
+                                    <option value="Sosial & Santunan">Sosial & Santunan</option>
+                                    <option value="Kerja Bakti / Kebersihan">Kerja Bakti / Kebersihan</option>
+                                    <option value="Remaja Masjid (Risma)">Remaja Masjid (Risma)</option>
+                                    <option value="Pelatihan / Workshop">Pelatihan / Workshop</option>
+                                    <option value="Umum">Umum</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Lokasi</label>
+                                <input type="text" id="input-agenda-lokasi" value="Masjid Nashrul Fattah" placeholder="Lokasi acara" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 font-medium mb-1">Deskripsi Singkat</label>
+                            <textarea id="input-agenda-deskripsi" rows="2" placeholder="Keterangan atau susunan acara singkat..." class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-dark-900 font-bold py-2.5 rounded-xl transition shadow-md flex items-center justify-center space-x-2 mt-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Publikasikan Agenda</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Grid Dynamic Agenda Cards -->
+                <div id="agenda-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Data populated dynamically via JavaScript -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION BARU: Laporan Keuangan Masjid -->
+    <section id="laporan-keuangan" class="page-section py-16 bg-dark-900 border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold-500 font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-vault"></i> Transparansi Kas & Bendahara DKM
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Laporan Keuangan Kas Masjid</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Rekapitulasi Transaksi Kas Masjid Nashrul Fattah</p>
+            </div>
+
+            <!-- Summary Cards Stats -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div class="bg-dark-800/90 p-5 rounded-2xl border border-emerald-500/30 shadow-xl flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase tracking-wider block font-medium">Total Pemasukan</span>
+                        <h3 id="stat-total-masuk" class="text-xl sm:text-2xl font-black text-emerald-400">Rp 0</h3>
+                    </div>
+                </div>
+
+                <div class="bg-dark-800/90 p-5 rounded-2xl border border-rose-500/30 shadow-xl flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase tracking-wider block font-medium">Total Pengeluaran</span>
+                        <h3 id="stat-total-keluar" class="text-xl sm:text-2xl font-black text-rose-400">Rp 0</h3>
+                    </div>
+                </div>
+
+                <div class="bg-dark-800/90 p-5 rounded-2xl border border-gold-500/40 shadow-xl flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase tracking-wider block font-medium">Saldo Kas Akhir</span>
+                        <h3 id="stat-saldo-akhir" class="text-xl sm:text-2xl font-black text-gold-400">Rp 0</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Upload Excel/CSV & Input Manual -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+                <!-- Box Upload File Excel/CSV -->
+                <div class="lg:col-span-6 bg-dark-800/90 p-6 rounded-2xl border border-gold-500/30 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-file-excel text-emerald-400"></i> Upload Laporan Excel / CSV
+                            </h3>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">XLSX / CSV</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-4">
+                            Impor rekapitulasi keuangan kas masjid langsung dari berkas spreadsheet Excel (Format .CSV).
+                        </p>
+
+                        <!-- Dropzone area keuangan -->
+                        <div id="finance-drop-zone" ondragover="handleFinDragOver(event)" ondragleave="handleFinDragLeave(event)" ondrop="handleFinFileDrop(event)" onclick="document.getElementById('finance-file-input').click()" class="border-2 border-dashed border-emerald-500/40 hover:border-emerald-400 bg-dark-900/80 rounded-xl p-6 text-center cursor-pointer transition">
+                            <i class="fa-solid fa-file-arrow-up text-3xl text-emerald-400 mb-2"></i>
+                            <p class="text-xs text-gray-200 font-semibold">Klik atau Seret Berkas Excel / CSV ke Sini</p>
+                            <p class="text-[11px] text-gray-400 mt-1">Kolom: Tanggal, Jenis (Masuk/Keluar), Uraian, Nominal</p>
+                            <input type="file" id="finance-file-input" accept=".csv,.txt" onchange="handleFinFileSelect(event)" class="hidden">
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-dark-700 flex items-center justify-between text-xs">
+                        <button onclick="downloadFinanceTemplate()" class="text-emerald-400 hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-download"></i> Template Excel/CSV Kas
+                        </button>
+                        <button onclick="clearAllFinanceData()" class="text-rose-400 hover:text-rose-300 font-medium flex items-center gap-1 transition">
+                            <i class="fa-solid fa-trash-can"></i> Kosongkan Kas
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Box Input Transaksi Manual -->
+                <div class="lg:col-span-6 bg-dark-800/90 p-6 rounded-2xl border border-gold-500/30 shadow-xl">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-circle-plus text-gold-500"></i> Catat Transaksi Baru
+                        </h3>
+                        <span class="text-[10px] bg-dark-700 text-gray-300 px-2 py-0.5 rounded">Bendahara DKM</span>
+                    </div>
+
+                    <form id="finance-form" onsubmit="handleAddFinance(event)" class="space-y-3 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Tanggal Transaksi</label>
+                                <input type="date" id="fin-tanggal" required class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Jenis Transaksi</label>
+                                <select id="fin-jenis" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                                    <option value="Masuk">Pemasukan (Kas Masuk)</option>
+                                    <option value="Keluar">Pengeluaran (Kas Keluar)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Uraian / Keterangan</label>
+                                <input type="text" id="fin-uraian" required placeholder="Contoh: Infaq Kotak Jumat" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Nominal (Rp)</label>
+                                <input type="number" id="fin-nominal" min="1" required placeholder="Contoh: 500000" class="w-full bg-dark-900 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-dark-900 font-bold py-2.5 rounded-xl transition shadow-md flex items-center justify-center space-x-2 mt-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Simpan Transaksi Kas</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TABEL 2: RINCIAN TRANSAKSI KAS -->
+            <div class="bg-dark-800/90 rounded-2xl p-6 border border-gold-500/30 shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-gold-500"></i> Rincian Transaksi Arus Kas
+                        </h3>
+                        <p class="text-xs text-gray-400">Daftar transaksi kas masuk dan keluar secara rinci</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <!-- Dropdown Filter Bulan -->
+                        <select id="finance-month-filter" onchange="renderFinanceTable()" class="bg-dark-900 border border-gold-500/40 rounded-xl px-3 py-1.5 text-xs text-white outline-none focus:border-gold-400">
+                            <option value="ALL">Semua Bulan</option>
+                            <option value="01">Januari</option>
+                            <option value="02">Februari</option>
+                            <option value="03">Maret</option>
+                            <option value="04">April</option>
+                            <option value="05">Mei</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">Agustus</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
+                        </select>
+                        <div class="relative w-full sm:w-56">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                            <input type="text" id="search-finance-input" onkeyup="renderFinanceTable()" placeholder="Cari Uraian..." class="w-full bg-dark-900 border border-gold-500/30 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white outline-none focus:border-gold-400">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-gray-300">
+                        <thead class="bg-dark-900 text-gold-400 uppercase font-bold border-b border-gold-500/20">
+                            <tr>
+                                <th class="py-3 px-4">Tanggal</th>
+                                <th class="py-3 px-4">Jenis</th>
+                                <th class="py-3 px-4">Uraian / Keterangan</th>
+                                <th class="py-3 px-4 text-right">Nominal</th>
+                                <th class="py-3 px-4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="finance-table-body" class="divide-y divide-dark-700">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BARU: STRUKTUR ORGANISASI DKM -->
+    <section id="struktur-organisasi" class="py-16 bg-dark-800 border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold-500 font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-sitemap"></i> Kepengurusan DKM Masjid Nashrul Fattah
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Bagan Struktur Organisasi</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Susunan Pengurus Dewan Kemakmuran Masjid Periode 2024 - 2027</p>
+            </div>
+
+            <!-- Hierarki / Bagan Struktur -->
+            <div class="space-y-8">
+                
+                <!-- 0. Pelindung (Paling Atas) -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-dark-900 border-2 border-gold-500/70 p-5 rounded-2xl shadow-xl w-full max-w-md text-center relative group hover:border-gold-500 transition">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gold-500 text-dark-900 text-[10px] font-extrabold px-4 py-0.5 rounded-full uppercase tracking-widest shadow-md">
+                            Pelindung
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500 text-gold-400 flex items-center justify-center text-2xl mx-auto mb-3 mt-2">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-white">Pembina dan Ketua</h4>
+                        <p class="text-xs text-gold-400 mt-0.5">Yayasan Zada Nashrul Fattah</p>
+                    </div>
+                    <div class="w-0.5 h-8 bg-gold-500/40"></div>
+                </div>
+
+                <!-- 1. Penasihat / Pembina -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-dark-900 border-2 border-gold-500/50 p-5 rounded-2xl shadow-xl w-full max-w-md text-center relative group hover:border-gold-500 transition">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gold-500 text-dark-900 text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+                            Dewan Penasihat
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500 text-gold-400 flex items-center justify-center text-2xl mx-auto mb-3 mt-2">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-white">Seluruh Pengurus</h4>
+                        <p class="text-xs text-gold-400 mt-0.5">Yayasan Zada Nashrul Fattah</p>
+                    </div>
+                    <div class="w-0.5 h-8 bg-gold-500/40"></div>
+                </div>
+
+                <!-- 2. Ketua DKM (Pimpinan Utama) -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-gradient-to-br from-dark-900 via-dark-700 to-dark-900 border-2 border-gold-500 p-6 rounded-2xl shadow-2xl w-full max-w-lg text-center relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gold-500 text-dark-900 text-xs font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-md">
+                            Ketua Takmir
+                        </div>
+                        <div class="w-20 h-20 rounded-full bg-gold-500/20 border-2 border-gold-500 text-gold-400 flex items-center justify-center text-3xl mx-auto mb-3 mt-2 shadow-inner">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-white">M. Anwar Syadad (Plt.)</h3>
+                        <p class="text-xs text-gold-400 font-medium mt-1">Bertanggungjawab Seluruh Operasional Masjid</p>
+                    </div>
+                    <div class="w-0.5 h-8 bg-gold-500/40"></div>
+                </div>
+
+                <!-- 3. Sekretaris & Bendahara (Grid 2 Kolom) -->
+                <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+                    
+                    <!-- Sekretaris -->
+                    <div class="bg-dark-900 border border-gold-500/40 p-5 rounded-2xl shadow-lg text-center">
+                        <div class="inline-block bg-gold-500/20 text-gold-400 text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider mb-2">
+                            Sekretaris
+                        </div>
+                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gold-500/30 text-gold-400 flex items-center justify-center text-xl mx-auto mb-2">
+                            <i class="fa-solid fa-file-pen"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">M. Anwar Syadad</h4>
+                        <p class="text-[11px] text-gray-400 mt-0.5">Administrasi & Kesekretariatan</p>
+                    </div>
+
+                    <!-- Bendahara -->
+                    <div class="bg-dark-900 border border-gold-500/40 p-5 rounded-2xl shadow-lg text-center">
+                        <div class="inline-block bg-gold-500/20 text-gold-400 text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider mb-2">
+                            Bendahara
+                        </div>
+                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gold-500/30 text-gold-400 flex items-center justify-center text-xl mx-auto mb-2">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">Deni F. Saputra</h4>
+                        <p class="text-[11px] text-gray-400 mt-0.5">Keuangan, Infaq & Donasi</p>
+                    </div>
+
+                    <div class="col-span-full flex justify-center">
+                        <div class="w-0.5 h-8 bg-gold-500/40"></div>
+                    </div>
+                </div>
+
+                <!-- 4. Bidang-Bidang / Departemen -->
+                <div class="text-center mb-6">
+                    <span class="text-xs bg-dark-900 border border-gold-500/30 text-gold-400 px-4 py-1.5 rounded-full font-bold uppercase tracking-wider">
+                        Seksi & Bidang Operasional DKM
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    
+                    <!-- Bidang 1 -->
+                    <div class="bg-dark-900 border border-gold-500/20 hover:border-gold-500/50 p-4 rounded-2xl shadow-md transition text-center">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-lg mx-auto mb-2">
+                            <i class="fa-solid fa-book-quran"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">Bidang Ubudiyah</h4>
+                        <p class="text-[13px] text-white-500 mt-1">Suryo Hadi (C)</p>
+                        <p class="text-[13px] text-white-500 mt-1">Herman</p>
+                        <p class="text-[13px] text-white-500 mt-1">Ahmad Muhyidin</p>
+                        <p class="text-[10px] text-yellow-500 mt-0.5">Jadwal Shalat, Kajian, Imam & Petugas Jum'at</p>
+                    </div>
+
+                    <!-- Bidang 2 -->
+                    <div class="bg-dark-900 border border-gold-500/20 hover:border-gold-500/50 p-4 rounded-2xl shadow-md transition text-center">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-lg mx-auto mb-2">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">Bidang PHBI</h4>
+                        <p class="text-[11px] text-white-500 mt-1">Heru Suyitno (C)</p>
+                        <p class="text-[13px] text-white-500 mt-1">Moch. Aeni Hasan</p>
+                        <p class="text-[13px] text-white-500 mt-1">Sandi Nur Hidayat</p>
+                        <p class="text-[10px] text-yellow-500 mt-0.5">PHBI, Santunan Yatim, Zakat, Qurban & Hubungan Warga</p>
+                    </div>
+
+                    <!-- Bidang 3 -->
+                    <div class="bg-dark-900 border border-gold-500/20 hover:border-gold-500/50 p-4 rounded-2xl shadow-md transition text-center">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-lg mx-auto mb-2">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">Bidang Sarpras</h4>
+                        <p class="text-[11px] text-white-500 mt-1">Heri Andi Pratito (C)</p>
+                        <p class="text-[13px] text-white-500 mt-1">Nurul Yakin</p>
+                        <p class="text-[13px] text-white-500 mt-1">Agus Budi Harto</p>
+                        <p class="text-[13px] text-white-500 mt-1">Andi Setiyanto</p>
+                        <p class="text-[10px] text-yellow-500 mt-0.5">Pemeliharaan Gedung, Sound System & Kelistrikan</p>
+                    </div>
+
+                    <!-- Bidang 4: Bidang Pembangunan -->
+                    <div class="bg-dark-900 border border-gold-500/20 hover:border-gold-500/50 p-4 rounded-2xl shadow-md transition text-center">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-lg mx-auto mb-2">
+                            <i class="fa-solid fa-trowel-bricks"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">Bidang Pembangunan</h4>
+                        <p class="text-[11px] text-white-500 mt-1">Syaifur Rizal (C)</p>
+                        <p class="text-[13px] text-white-500 mt-1">Andri Kurniawan</p>
+                        <p class="text-[13px] text-white-500 mt-1">Habbi Nashihul Hibat</p>
+                        <p class="text-[13px] text-white-500 mt-1">Ahmad Hasan Bawain</p>
+                        <p class="text-[10px] text-yellow-500 mt-0.5">Perencanaan, Konstruksi & Renovasi Fisik Masjid</p>
+                    </div>
+
+                    <!-- Bidang 5 -->
+                    <div class="bg-dark-900 border border-gold-500/20 hover:border-gold-500/50 p-4 rounded-2xl shadow-md transition text-center">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-lg mx-auto mb-2">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">Bidang Kebersihan</h4>
+                        <p class="text-[11px] text-white-500 mt-1">Nanang Afifurrohman (C)</p>
+                        <p class="text-[13px] text-white-500 mt-1">Maskur</p>
+                        <p class="text-[13px] text-white-500 mt-1">Miftahus Surur</p>
+                        <p class="text-[10px] text-yellow-500 mt-0.5">Kebersihan Seluruh area Masjid</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION UTAMA BARU: MODUL JADWAL PETUGAS SHALAT JUM'AT OTOMATIS (UPLOAD & INPUT) -->
+    <section id="jadwal-jumat" class="py-16 bg-dark-800 border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold-500 font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-kaaba"></i> Manajemen Peribadatan Jum'at DKM
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-1">Jadwal Petugas Shalat Jum'at</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Sistem Otomatisasi Jadwal Khatib, Imam, Muadzin & Bilal Masjid Nashrul Fattah</p>
+            </div>
+
+            <!-- Panel Pengelola Data (Upload & Input Manual) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+                
+                <!-- Box Upload File (CSV / JSON) -->
+                <div class="lg:col-span-6 bg-dark-900/90 p-6 rounded-2xl border border-gold-500/30 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-file-arrow-up text-gold-500"></i> Import Data via Upload File
+                            </h3>
+                            <span class="text-[10px] bg-gold-500/20 text-gold-400 px-2 py-0.5 rounded border border-gold-500/30">CSV / JSON</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-4">
+                            Unggah file CSV atau JSON untuk menambahkan atau memperbarui jadwal petugas Jum'at banyak pekan sekaligus.
+                        </p>
+
+                        <!-- Dropzone area -->
+                        <div id="drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleFileDrop(event)" onclick="document.getElementById('file-input').click()" class="border-2 border-dashed border-gold-500/40 hover:border-gold-400 bg-dark-800/80 rounded-xl p-6 text-center cursor-pointer transition">
+                            <i class="fa-solid fa-cloud-arrow-up text-3xl text-gold-500 mb-2"></i>
+                            <p class="text-xs text-gray-200 font-semibold">Klik atau Seret (Drag & Drop) File Ke Sini</p>
+                            <p class="text-[11px] text-gray-400 mt-1">Mendukung format .CSV atau .JSON</p>
+                            <input type="file" id="file-input" accept=".csv,.json,.txt" onchange="handleFileSelect(event)" class="hidden">
+                        </div>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="mt-4 pt-3 border-t border-dark-700 flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center gap-3">
+                            <button onclick="downloadSampleCSV()" class="text-xs text-gold-400 hover:underline flex items-center gap-1">
+                                <i class="fa-solid fa-download"></i> Contoh Template CSV
+                            </button>
+                            <button onclick="clearAllJumatData()" class="text-xs text-rose-400 hover:text-rose-300 font-medium flex items-center gap-1 transition" title="Hapus Semua Data Terimpor">
+                                <i class="fa-solid fa-trash-can"></i> Hapus Semua Data
+                            </button>
+                        </div>
+                        <button onclick="resetDefaultJumatData()" class="text-xs text-gray-400 hover:text-gold-400 transition flex items-center gap-1">
+                            <i class="fa-solid fa-rotate-left"></i> Reset Bawaan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Box Input Manual -->
+                <div class="lg:col-span-6 bg-dark-900/90 p-6 rounded-2xl border border-gold-500/30 shadow-xl">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-pen-to-square text-gold-500"></i> Tambah / Input Manual
+                        </h3>
+                        <span class="text-[10px] bg-dark-700 text-gray-300 px-2 py-0.5 rounded">Form DKM</span>
+                    </div>
+
+                    <form id="jumat-form" onsubmit="handleAddJumatManual(event)" class="space-y-3 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Tanggal Jum'at</label>
+                                <input type="date" id="input-tanggal" required class="w-full bg-dark-800 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Khatib Jum'at</label>
+                                <input type="text" id="input-khatib" required placeholder="Nama Khatib" class="w-full bg-dark-800 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Imam Shalat</label>
+                                <input type="text" id="input-imam" required placeholder="Nama Imam" class="w-full bg-dark-800 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-medium mb-1">Muadzin & Bilal</label>
+                                <input type="text" id="input-muadzin" required placeholder="Nama Muadzin" class="w-full bg-dark-800 border border-dark-700 focus:border-gold-500 rounded-xl px-3 py-2 text-white outline-none">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-2.5 rounded-xl transition shadow-md flex items-center justify-center space-x-2 mt-2">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Simpan Jadwal Petugas</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Header List & Filter -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-gold-500"></i> Daftar Jadwal Petugas Terdaftar
+                    </h3>
+                    <p class="text-xs text-gray-400">Total <span id="jumat-count" class="text-gold-400 font-bold">0</span> Pekan Petugas Terjadwal</p>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="relative w-full sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                        <input type="text" id="search-jumat-input" onkeyup="filterJumatCards()" placeholder="Cari Ust. / Khatib / Tema..." class="w-full bg-dark-900 border border-gold-500/30 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white outline-none focus:border-gold-400">
+                    </div>
+                    <button onclick="exportJumatJSON()" class="bg-dark-900 hover:bg-dark-700 text-gold-400 border border-gold-500/40 px-3 py-1.5 rounded-xl text-xs font-semibold shrink-0" title="Ekspor JSON">
+                        <i class="fa-solid fa-file-export me-1"></i> Ekspor
+                    </button>
+                </div>
+            </div>
+
+            <!-- Highlight Card Jum'at Ini -->
+            <div id="jumat-ini-banner" class="mb-8">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Grid Cards List Jadwal Petugas -->
+            <div id="jumat-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards render dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-gold-500/20 py-8 text-center text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <img src="MNF.jpg" alt="Logo" class="h-8 w-8 rounded-full border border-gold-500" onerror="this.src='https://placehold.co/60x60/FFC700/000000?text=MNF'">
+                    <span class="text-white font-semibold">DKM Masjid Nashrul Fattah</span>
+                </div>
+                <p>© 2026 DKM Masjid Nashrul Fattah Perumahan Alam Hijau Jember. All rights reserved.</p>
+                <div class="flex space-x-4 text-gray-400">
+                    <a href="#" class="hover:text-gold-500 transition"><i class="fa-brands fa-youtube text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition"><i class="fa-brands fa-facebook text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: Infaq Digital & QRIS -->
+    <div id="infaq-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-dark-800 border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-fade-in">
+            <!-- Close Button -->
+            <button onclick="closeInfaqModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-gold-500/10 text-gold-500 mx-auto flex items-center justify-center text-2xl mb-3">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Infaq & Donasi Digital</h3>
+                <p class="text-xs text-gray-400 mt-1">Masjid Nashrul Fattah Perumahan Alam Hijau Jember</p>
+            </div>
+
+            <!-- QRIS Code Container -->
+            <div class="my-6 bg-white p-4 rounded-2xl max-w-xs mx-auto border-4 border-gold-500 shadow-inner text-center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=00020101021126580014ID.LINKAJA.WWW01189360091100030012345204581253033605400005802ID5925DKM%20NASHRUL%20FATTAH6006JEMBER62070703A016304C741" alt="QRIS Masjid Nashrul Fattah" class="w-full h-auto mx-auto rounded">
+                <p class="text-[10px] text-gray-800 font-bold tracking-widest uppercase mt-2">NMID: ID10243928174</p>
+                <p class="text-[9px] text-gray-500">Mendukung: GoPay, OVO, ShopeePay, Dana, BCA, BSI & Bank Lainnya</p>
+            </div>
+
+            <!-- Bank Transfer Info -->
+            <div class="bg-dark-900 p-4 rounded-xl border border-dark-700 space-y-3 mb-6">
+                <div class="flex justify-between items-center text-xs sm:text-sm">
+                    <div>
+                        <span class="text-gray-400 block text-xs">Bank Syariah Indonesia (BSI)</span>
+                        <span class="font-mono font-bold text-gold-400 text-base">7123-4567-89</span>
+                        <span class="text-gray-400 block text-xs">a.n. DKM Nashrul Fattah Jember</span>
+                    </div>
+                    <button onclick="copyToClipboard('7123456789')" class="bg-dark-700 hover:bg-gold-500 hover:text-dark-900 text-gold-400 px-3 py-1.5 rounded-lg text-xs font-semibold transition">
+                        <i class="fa-regular fa-copy me-1"></i> Salin
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="closeInfaqModal()" class="w-full bg-dark-700 hover:bg-dark-600 text-white font-semibold py-3 rounded-xl transition">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Custom Confirmation & Alert Dialog (Menggantikan alert/confirm bawaan) -->
+    <div id="custom-dialog-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-dark-800 border border-gold-500/40 rounded-3xl max-w-sm w-full p-6 relative shadow-2xl">
+            <div class="text-center">
+                <div id="dialog-icon-container" class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 mx-auto flex items-center justify-center text-2xl mb-3">
+                    <i id="dialog-icon" class="fa-solid fa-circle-question"></i>
+                </div>
+                <h3 id="dialog-title" class="text-lg font-bold text-white">Konfirmasi</h3>
+                <p id="dialog-message" class="text-xs text-gray-300 mt-2 leading-relaxed">Apakah Anda yakin?</p>
+            </div>
+            <div id="dialog-buttons" class="mt-6 flex items-center justify-center gap-3">
+                <button id="dialog-cancel-btn" class="flex-1 bg-dark-700 hover:bg-dark-600 text-gray-200 font-semibold py-2.5 rounded-xl text-xs transition">
+                    Batal
+                </button>
+                <button id="dialog-confirm-btn" class="flex-1 bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold py-2.5 rounded-xl text-xs transition">
+                    Ya, Lanjutkan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cloud Sync Status Indicator -->
+    <div id="sync-status-badge" class="fixed bottom-4 left-4 z-40 bg-dark-800/90 backdrop-blur-md border border-gold-500/30 px-3 py-1.5 rounded-full text-[11px] text-gray-300 flex items-center gap-2 shadow-lg">
+        <span id="sync-dot" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span id="sync-text">Menghubungkan sinkronisasi...</span>
+    </div>
+
+    <!-- JavaScript Application Logic & Cloud Sync -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Konfigurasi & Inisialisasi Cloud Storage
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'dkm-nashrul-fattah-jember';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+        let isCloudReady = false;
+
+        // Global Prayer State & Settings
+        let currentCity = "Jember";
+        let currentCountry = "Indonesia";
+        let userCoords = null;
+        let prayerTimesData = {};
+        let nextPrayerKey = null;
+        let isAudioEnabled = true;
+        let hasAlertedThisPrayer = false;
+
+        // DATA STORES (Tersinkronisasi ke semua perangkat)
+        let jumatDataList = [];
+        let kajianDataList = [];
+        let agendaDataList = [];
+        let financeDataList = [];
+
+        const defaultFinanceData = [];
+        const defaultAgendaData = [];
+        const defaultKajianData = [
+            {
+                id: 'k1',
+                judul: "Kitab Sulam Taufiq",
+                pemateri: "Ust. Ahmad Fajar Shodiq",
+                waktu: "Setiap Selasa Ba'da Maghrib (Pekan Pertama)",
+                kategori: "Fiqih & Muamalah",
+                peserta: "Umum"
+            },
+            {
+                id: 'k2',
+                judul: "Kitab Arba'in Nawawi",
+                pemateri: "Ust. Abdul Haris",
+                waktu: "Setiap Ahad Ba'da Subuh (Pekan Ke-2)",
+                kategori: "Fiqih & Muamalah",
+                peserta: "Umum"
+            },
+            {
+                id: 'k3',
+                judul: "Kitab Safinatun Najah",
+                pemateri: "Ust. Nasih Elzuhri",
+                waktu: "Setiap Jumat Ba'da Subuh Maghrib (Pekan Ke-3)",
+                kategori: "Fiqih & Muamalah",
+                peserta: "Umum"
+            },
+            {
+                id: 'k4',
+                judul: "Kitab Manaqib Sahabat Rasullallah Shallallahu Alaihi Wassalam",
+                pemateri: "Ust. Abdul Aziz",
+                waktu: "Setiap Jumat Jam: 20.00 WIB (Pekan Terakhir)",
+                kategori: "Literatur & Biografi Para Sahabat",
+                peserta: "Umum"
+            }
+        ];
+        const defaultJumatData = [];
+
+        const prayerKeys = ["Imsak", "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"];
+        const prayerDisplayNames = {
+            Imsak: "Imsak",
+            Fajr: "Subuh",
+            Sunrise: "Terbit",
+            Dhuhr: "Dzuhur",
+            Asr: "Ashar",
+            Maghrib: "Maghrib",
+            Isha: "Isya"
+        };
+        const prayerIcons = {
+            Imsak: "fa-solid fa-star",
+            Fajr: "fa-solid fa-moon",
+            Sunrise: "fa-solid fa-sun",
+            Dhuhr: "fa-solid fa-sun",
+            Asr: "fa-solid fa-cloud",
+            Maghrib: "fa-solid fa-moon",
+            Isha: "fa-solid fa-star"
+        };
+
+        // ------------------ CUSTOM DIALOG HELPERS ------------------
+        function showCustomAlert(message, title = "Informasi", type = "info") {
+            return new Promise((resolve) => {
+                const modal = document.getElementById('custom-dialog-modal');
+                const titleEl = document.getElementById('dialog-title');
+                const msgEl = document.getElementById('dialog-message');
+                const cancelBtn = document.getElementById('dialog-cancel-btn');
+                const confirmBtn = document.getElementById('dialog-confirm-btn');
+                const iconEl = document.getElementById('dialog-icon');
+
+                titleEl.textContent = title;
+                msgEl.textContent = message;
+                cancelBtn.classList.add('hidden');
+                confirmBtn.textContent = "Mengerti";
+                iconEl.className = type === "error" ? "fa-solid fa-triangle-exclamation text-rose-400" : "fa-solid fa-circle-info text-gold-400";
+
+                modal.classList.remove('hidden');
+
+                const cleanup = () => {
+                    modal.classList.add('hidden');
+                    confirmBtn.removeEventListener('click', onConfirm);
+                    resolve(true);
+                };
+                const onConfirm = () => cleanup();
+                confirmBtn.addEventListener('click', onConfirm);
+            });
+        }
+
+        function showCustomConfirm(message, title = "Konfirmasi") {
+            return new Promise((resolve) => {
+                const modal = document.getElementById('custom-dialog-modal');
+                const titleEl = document.getElementById('dialog-title');
+                const msgEl = document.getElementById('dialog-message');
+                const cancelBtn = document.getElementById('dialog-cancel-btn');
+                const confirmBtn = document.getElementById('dialog-confirm-btn');
+                const iconEl = document.getElementById('dialog-icon');
+
+                titleEl.textContent = title;
+                msgEl.textContent = message;
+                cancelBtn.classList.remove('hidden');
+                confirmBtn.textContent = "Ya, Lanjutkan";
+                iconEl.className = "fa-solid fa-circle-question text-gold-400";
+
+                modal.classList.remove('hidden');
+
+                const cleanup = (result) => {
+                    modal.classList.add('hidden');
+                    confirmBtn.removeEventListener('click', onConfirm);
+                    cancelBtn.removeEventListener('click', onCancel);
+                    resolve(result);
+                };
+                const onConfirm = () => cleanup(true);
+                const onCancel = () => cleanup(false);
+
+                confirmBtn.addEventListener('click', onConfirm);
+                cancelBtn.addEventListener('click', onCancel);
+            });
+        }
+
+        function updateSyncBadge(status, text) {
+            const dot = document.getElementById('sync-dot');
+            const label = document.getElementById('sync-text');
+            if (!dot || !label) return;
+            label.textContent = text;
+            if (status === 'connected') {
+                dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+            } else if (status === 'syncing') {
+                dot.className = 'w-2 h-2 rounded-full bg-gold-400 animate-ping';
+            } else {
+                dot.className = 'w-2 h-2 rounded-full bg-rose-400';
+            }
+        }
+
+        // ------------------ CLOUD SYNC INITIALIZATION ------------------
+        async function initCloudSync() {
+            if (!firebaseConfig) {
+                updateSyncBadge('error', 'Mode Offline (Konfigurasi tidak ditemukan)');
+                loadFallbackDefaults();
+                return;
+            }
+
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // RULE 3: Auth Before Queries
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                onAuthStateChanged(auth, (user) => {
+                    currentUser = user;
+                    if (user && !isCloudReady) {
+                        isCloudReady = true;
+                        setupRealtimeListeners();
+                    }
+                });
+            } catch (error) {
+                console.error("Cloud sync error:", error);
+                updateSyncBadge('error', 'Gagal terhubung ke server sinkronisasi');
+                loadFallbackDefaults();
+            }
+        }
+
+        function loadFallbackDefaults() {
+            jumatDataList = [...defaultJumatData];
+            kajianDataList = [...defaultKajianData];
+            agendaDataList = [...defaultAgendaData];
+            financeDataList = [...defaultFinanceData];
+            renderAllSections();
+        }
+
+        function renderAllSections() {
+            sortJumatData();
+            renderJumatCards();
+            renderKajianCards();
+            sortAgendaData();
+            renderAgendaCards();
+            sortFinanceData();
+            renderFinanceTable();
+            updateFinanceStats();
+        }
+
+        function setupRealtimeListeners() {
+            if (!currentUser || !db) return;
+
+            // RULE 1: Strict Public Path for multi-device sharing
+            const publicColRef = collection(db, 'artifacts', appId, 'public', 'data', 'dkm_shared_state');
+
+            onSnapshot(publicColRef, (snapshot) => {
+                let hasKajianDoc = false;
+
+                snapshot.forEach((docSnap) => {
+                    const id = docSnap.id;
+                    const data = docSnap.data();
+
+                    if (id === 'jumat_schedule') {
+                        jumatDataList = Array.isArray(data.items) ? data.items : [];
+                        sortJumatData();
+                        renderJumatCards();
+                    } else if (id === 'kajian_schedule') {
+                        hasKajianDoc = true;
+                        kajianDataList = Array.isArray(data.items) ? data.items : [];
+                        renderKajianCards();
+                    } else if (id === 'agenda_schedule') {
+                        agendaDataList = Array.isArray(data.items) ? data.items : [];
+                        sortAgendaData();
+                        renderAgendaCards();
+                    } else if (id === 'finance_ledger') {
+                        financeDataList = Array.isArray(data.items) ? data.items : [];
+                        sortFinanceData();
+                        renderFinanceTable();
+                        updateFinanceStats();
+                    } else if (id === 'masjid_branding' && data.logoBase64) {
+                        updateLogoElements(data.logoBase64);
+                    }
+                });
+
+                // Inisialisasi kajian bawaan jika dokumen belum ada di cloud
+                if (!hasKajianDoc && kajianDataList.length === 0) {
+                    kajianDataList = [...defaultKajianData];
+                    syncCollectionToCloud('kajian_schedule', kajianDataList);
+                }
+
+                updateSyncBadge('connected', 'Tersinkronisasi ke semua perangkat');
+            }, (error) => {
+                console.error("Realtime listener error:", error);
+                updateSyncBadge('error', 'Gangguan koneksi sinkronisasi');
+            });
+        }
+
+        async function syncCollectionToCloud(docKey, itemsArray) {
+            if (!currentUser || !db) return;
+            updateSyncBadge('syncing', 'Menyimpan perubahan...');
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'dkm_shared_state', docKey);
+                await setDoc(docRef, {
+                    items: itemsArray,
+                    updatedAt: new Date().toISOString()
+                });
+                updateSyncBadge('connected', 'Tersinkronisasi ke semua perangkat');
+            } catch (err) {
+                console.error("Gagal menyimpan ke cloud:", err);
+                updateSyncBadge('error', 'Gagal menyimpan ke server');
+                showCustomAlert("Terjadi kesalahan saat menyinkronkan data ke semua perangkat.", "Gagal Menyimpan", "error");
+            }
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileMenu();
+            fetchPrayerTimesData();
+            startLiveClock();
+            updateCurrentDayName();
+            switchView('beranda');
+            initCloudSync();
+        });
+
+        // ------------------ VIEW SWITCHING LOGIC ------------------
+        function switchView(viewId) {
+            const sections = ['beranda', 'jadwal-shalat', 'jadwal-jumat', 'kajian-agenda', 'laporan-keuangan', 'struktur-organisasi'];
+            
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === viewId) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+
+            const visiMisiSec = document.querySelector('section.py-14.bg-pattern');
+            if (visiMisiSec) {
+                if (viewId === 'beranda') {
+                    visiMisiSec.classList.remove('hidden');
+                } else {
+                    visiMisiSec.classList.add('hidden');
+                }
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ------------------ LAPORAN KEUANGAN LOGIC ------------------
+        function saveFinanceData() {
+            sortFinanceData();
+            renderFinanceTable();
+            updateFinanceStats();
+            syncCollectionToCloud('finance_ledger', financeDataList);
+        }
+
+        function sortFinanceData() {
+            financeDataList.sort((a, b) => new Date(b.tanggal) - new Date(a.tanggal));
+        }
+
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        function renderFinanceTable() {
+            const tbody = document.getElementById('finance-table-body');
+            const searchInput = document.getElementById('search-finance-input');
+            const monthFilterSelect = document.getElementById('finance-month-filter');
+            if (!tbody) return;
+
+            const filter = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            const selectedMonth = monthFilterSelect ? monthFilterSelect.value : 'ALL';
+            tbody.innerHTML = '';
+
+            const filtered = financeDataList.filter(item => {
+                const u = (item.uraian || '').toLowerCase();
+                const t = (item.tanggal || '').toLowerCase();
+                const j = (item.jenis || '').toLowerCase();
+                
+                const matchesSearch = u.includes(filter) || t.includes(filter) || j.includes(filter);
+                
+                let matchesMonth = true;
+                if (selectedMonth !== 'ALL' && item.tanggal) {
+                    const parts = item.tanggal.split('-');
+                    if (parts.length >= 2) {
+                        matchesMonth = (parts[1] === selectedMonth);
+                    } else {
+                        matchesMonth = false;
+                    }
+                }
+
+                return matchesSearch && matchesMonth;
+            });
+
+            updateFilteredFinanceStats(filtered);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="text-center py-8 text-gray-400">Belum ada catatan transaksi keuangan.</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const isMasuk = item.jenis === 'Masuk';
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-dark-900 transition";
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-mono">${item.tanggal}</td>
+                    <td class="py-3 px-4">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${isMasuk ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'}">
+                            ${isMasuk ? 'PEMASUKAN' : 'PENGELUARAN'}
+                        </span>
+                    </td>
+                    <td class="py-3 px-4 font-medium text-white">${item.uraian}</td>
+                    <td class="py-3 px-4 text-right font-mono font-bold ${isMasuk ? 'text-emerald-400' : 'text-rose-400'}">
+                        ${isMasuk ? '+' : '-'} ${formatRupiah(item.nominal)}
+                    </td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="deleteFinanceItem('${item.id}')" class="text-gray-400 hover:text-rose-400 p-1.5 rounded transition" title="Hapus Transaksi">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function handleAddFinance(e) {
+            e.preventDefault();
+            const tanggal = document.getElementById('fin-tanggal').value;
+            const jenis = document.getElementById('fin-jenis').value;
+            const uraian = document.getElementById('fin-uraian').value.trim();
+            const nominal = parseFloat(document.getElementById('fin-nominal').value);
+
+            if (!tanggal || !uraian || isNaN(nominal)) {
+                await showCustomAlert("Harap isi semua kolom dengan benar!", "Peringatan", "error");
+                return;
+            }
+
+            const newTx = {
+                id: 'tx_' + Date.now(),
+                tanggal,
+                jenis,
+                uraian,
+                nominal
+            };
+
+            financeDataList.unshift(newTx);
+            saveFinanceData();
+            e.target.reset();
+            showToast("Transaksi keuangan tersimpan ke semua perangkat!");
+        }
+
+        async function deleteFinanceItem(id) {
+            const confirmed = await showCustomConfirm("Hapus catatan transaksi ini? Perubahan akan berlaku di semua perangkat.", "Hapus Transaksi");
+            if (confirmed) {
+                financeDataList = financeDataList.filter(item => item.id !== id);
+                saveFinanceData();
+                showToast("Transaksi berhasil dihapus.");
+            }
+        }
+
+        async function clearAllFinanceData() {
+            if (financeDataList.length === 0) {
+                showToast("Data keuangan sudah kosong.");
+                return;
+            }
+            const confirmed = await showCustomConfirm("Yakin ingin mengosongkan seluruh riwayat arus kas di semua perangkat?", "Kosongkan Kas");
+            if (confirmed) {
+                financeDataList = [];
+                saveFinanceData();
+                showToast("Seluruh riwayat arus kas telah dikosongkan.");
+            }
+        }
+
+        function updateFinanceStats() {
+            let totalMasuk = 0;
+            let totalKeluar = 0;
+
+            financeDataList.forEach(item => {
+                if (item.jenis === 'Masuk') totalMasuk += Number(item.nominal);
+                else if (item.jenis === 'Keluar') totalKeluar += Number(item.nominal);
+            });
+
+            document.getElementById('stat-total-masuk').textContent = formatRupiah(totalMasuk);
+            document.getElementById('stat-total-keluar').textContent = formatRupiah(totalKeluar);
+            document.getElementById('stat-saldo-akhir').textContent = formatRupiah(totalMasuk - totalKeluar);
+        }
+
+        function updateFilteredFinanceStats(filteredList) {
+            let totalMasuk = 0;
+            let totalKeluar = 0;
+
+            filteredList.forEach(item => {
+                if (item.jenis === 'Masuk') totalMasuk += Number(item.nominal);
+                else if (item.jenis === 'Keluar') totalKeluar += Number(item.nominal);
+            });
+
+            document.getElementById('stat-total-masuk').textContent = formatRupiah(totalMasuk);
+            document.getElementById('stat-total-keluar').textContent = formatRupiah(totalKeluar);
+            document.getElementById('stat-saldo-akhir').textContent = formatRupiah(totalMasuk - totalKeluar);
+        }
+
+        function handleFinDragOver(e) {
+            e.preventDefault();
+            document.getElementById('finance-drop-zone').classList.add('border-emerald-400', 'bg-dark-700');
+        }
+
+        function handleFinDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('finance-drop-zone').classList.remove('border-emerald-400', 'bg-dark-700');
+        }
+
+        function handleFinFileDrop(e) {
+            e.preventDefault();
+            handleFinDragLeave(e);
+            const files = e.dataTransfer.files;
+            if (files.length > 0) processFinFile(files[0]);
+        }
+
+        function handleFinFileSelect(e) {
+            const files = e.target.files;
+            if (files.length > 0) processFinFile(files[0]);
+        }
+
+        function processFinFile(file) {
+            const reader = new FileReader();
+            reader.onload = async function(evt) {
+                const content = evt.target.result;
+                try {
+                    const lines = content.split(/\r\n|\n/);
+                    let count = 0;
+                    lines.forEach((line, index) => {
+                        if (index === 0 && line.toLowerCase().includes('tanggal')) return;
+                        const cols = line.split(',');
+                        if (cols.length >= 4) {
+                            financeDataList.unshift({
+                                id: 'fin_up_' + Date.now() + '_' + index,
+                                tanggal: cols[0]?.trim() || new Date().toISOString().split('T')[0],
+                                jenis: cols[1]?.trim() === 'Masuk' ? 'Masuk' : 'Keluar',
+                                uraian: cols[2]?.trim() || 'Transaksi Excel',
+                                nominal: parseFloat(cols[3]?.trim()) || 0
+                            });
+                            count++;
+                        }
+                    });
+                    saveFinanceData();
+                    showToast(`Berhasil mengimpor & menyinkronkan ${count} baris data keuangan!`);
+                } catch(err) {
+                    await showCustomAlert("Gagal membaca file Excel/CSV. Pastikan format kolom: Tanggal,Jenis(Masuk/Keluar),Uraian,Nominal", "Format Tidak Sesuai", "error");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function downloadFinanceTemplate() {
+            const csvContent = "data:text/csv;charset=utf-8," + 
+                "tanggal,jenis,uraian,nominal\n" +
+                "2026-03-10,Masuk,Infaq Donatur Tetap,1000000\n" +
+                "2026-03-12,Keluar,Pembayaran Listrik Masjid,450000";
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "template_laporan_keuangan_mnf.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // ------------------ AGENDA & KEGIATAN LOGIC ------------------
+        function saveAgendaData() {
+            sortAgendaData();
+            renderAgendaCards();
+            syncCollectionToCloud('agenda_schedule', agendaDataList);
+        }
+
+        function sortAgendaData() {
+            agendaDataList.sort((a, b) => new Date(a.tanggal) - new Date(b.tanggal));
+        }
+
+        async function handleAddAgenda(e) {
+            e.preventDefault();
+            const judul = document.getElementById('input-agenda-judul').value.trim();
+            const tanggal = document.getElementById('input-agenda-tanggal').value;
+            const waktu = document.getElementById('input-agenda-waktu').value.trim();
+            const kategori = document.getElementById('input-agenda-kategori').value;
+            const lokasi = document.getElementById('input-agenda-lokasi').value.trim() || 'Masjid Nashrul Fattah';
+            const deskripsi = document.getElementById('input-agenda-deskripsi').value.trim();
+
+            if (!judul || !tanggal || !waktu) {
+                await showCustomAlert("Harap isi nama kegiatan, tanggal, dan waktu pelaksanaan!", "Data Belum Lengkap", "error");
+                return;
+            }
+
+            const newAgenda = {
+                id: 'ag_' + Date.now(),
+                judul,
+                tanggal,
+                waktu,
+                kategori,
+                lokasi,
+                deskripsi
+            };
+
+            agendaDataList.push(newAgenda);
+            saveAgendaData();
+            e.target.reset();
+            document.getElementById('input-agenda-lokasi').value = 'Masjid Nashrul Fattah';
+            showToast("Agenda Kegiatan Berhasil Dipublikasikan ke Semua Perangkat!");
+        }
+
+        async function deleteAgendaItem(id) {
+            const confirmed = await showCustomConfirm("Hapus agenda kegiatan ini dari semua perangkat?", "Hapus Agenda");
+            if (confirmed) {
+                agendaDataList = agendaDataList.filter(item => item.id !== id);
+                saveAgendaData();
+                showToast("Agenda berhasil dihapus.");
+            }
+        }
+
+        function renderAgendaCards() {
+            const container = document.getElementById('agenda-cards-grid');
+            const searchInput = document.getElementById('search-agenda-input');
+            if (!container) return;
+
+            const filter = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            container.innerHTML = '';
+
+            const filtered = agendaDataList.filter(item => {
+                const j = (item.judul || '').toLowerCase();
+                const k = (item.kategori || '').toLowerCase();
+                const l = (item.lokasi || '').toLowerCase();
+                const d = (item.deskripsi || '').toLowerCase();
+                return j.includes(filter) || k.includes(filter) || l.includes(filter) || d.includes(filter);
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-dark-800 rounded-2xl border border-dark-700">
+                        <i class="fa-solid fa-calendar-xmark text-4xl text-gray-600 mb-3"></i>
+                        <p class="text-gray-400 text-sm">Tidak ada agenda atau kegiatan yang ditemukan.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const dateObj = new Date(item.tanggal);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const dateFormatted = dateObj.toLocaleDateString('id-ID', options);
+
+                const card = document.createElement('div');
+                card.className = "bg-dark-800 rounded-2xl p-5 border border-gold-500/20 hover:border-gold-500/60 transition shadow-lg flex flex-col justify-between group";
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-3">
+                            <span class="text-[10px] bg-gold-500/20 text-gold-400 font-semibold px-2.5 py-1 rounded-lg border border-gold-500/30 uppercase tracking-wider">
+                                ${item.kategori}
+                            </span>
+                            <button onclick="deleteAgendaItem('${item.id}')" class="text-gray-400 hover:text-rose-400 p-1 rounded transition text-xs" title="Hapus Agenda">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+
+                        <h4 class="text-base font-bold text-white group-hover:text-gold-400 transition mb-2">${item.judul}</h4>
+                        
+                        <div class="space-y-2 text-xs mb-3">
+                            <div class="flex items-center text-gold-400 font-medium">
+                                <i class="fa-regular fa-calendar text-gold-500 w-5"></i>
+                                <span>${dateFormatted}</span>
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i class="fa-regular fa-clock text-gold-500 w-5"></i>
+                                <span>${item.waktu}</span>
+                            </div>
+                            <div class="flex items-center text-gray-400">
+                                <i class="fa-solid fa-location-dot text-rose-400 w-5"></i>
+                                <span>${item.lokasi}</span>
+                            </div>
+                        </div>
+
+                        ${item.deskripsi ? `<p class="text-xs text-gray-400 bg-dark-900/70 p-3 rounded-xl border border-dark-700 italic">${item.deskripsi}</p>` : ''}
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-dark-700 flex items-center justify-between text-[11px] text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-mosque text-gold-500"></i> DKM Nashrul Fattah</span>
+                        <span class="text-emerald-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-circle text-[6px]"></i> Terjadwal</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ------------------ KAJIAN RUTIN LOGIC ------------------
+        function saveKajianData() {
+            renderKajianCards();
+            syncCollectionToCloud('kajian_schedule', kajianDataList);
+        }
+
+        async function handleAddKajian(e) {
+            e.preventDefault();
+            const judul = document.getElementById('input-kajian-judul').value.trim();
+            const pemateri = document.getElementById('input-kajian-pemateri').value.trim();
+            const waktu = document.getElementById('input-kajian-waktu').value.trim();
+            const kategori = document.getElementById('input-kajian-kategori').value;
+            const peserta = document.getElementById('input-kajian-peserta').value.trim() || 'Umum';
+
+            if (!judul || !pemateri || !waktu) {
+                await showCustomAlert("Harap isi bidang judul, pemateri, dan waktu kajian!", "Data Belum Lengkap", "error");
+                return;
+            }
+
+            const newKajian = {
+                id: 'kj_' + Date.now(),
+                judul,
+                pemateri,
+                waktu,
+                kategori,
+                peserta
+            };
+
+            kajianDataList.unshift(newKajian);
+            saveKajianData();
+            e.target.reset();
+            showToast("Jadwal Kajian Rutin Dipublikasikan ke Semua Perangkat!");
+        }
+
+        async function deleteKajianItem(id) {
+            const confirmed = await showCustomConfirm("Hapus agenda kajian rutin ini dari semua perangkat?", "Hapus Kajian");
+            if (confirmed) {
+                kajianDataList = kajianDataList.filter(item => item.id !== id);
+                saveKajianData();
+                showToast("Kajian berhasil dihapus.");
+            }
+        }
+
+        function renderKajianCards() {
+            const container = document.getElementById('kajian-cards-grid');
+            const searchInput = document.getElementById('search-kajian-input');
+            if (!container) return;
+
+            const filter = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            container.innerHTML = '';
+
+            const filtered = kajianDataList.filter(item => {
+                const j = (item.judul || '').toLowerCase();
+                const p = (item.pemateri || '').toLowerCase();
+                const w = (item.waktu || '').toLowerCase();
+                const k = (item.kategori || '').toLowerCase();
+                return j.includes(filter) || p.includes(filter) || w.includes(filter) || k.includes(filter);
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-dark-800 rounded-2xl border border-dark-700">
+                        <i class="fa-solid fa-book-open text-4xl text-gray-600 mb-3"></i>
+                        <p class="text-gray-400 text-sm">Tidak ada jadwal kajian rutin yang ditemukan.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-dark-800 rounded-2xl p-5 border border-gold-500/20 hover:border-gold-500/60 transition shadow-lg flex flex-col justify-between group";
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start gap-2 mb-3">
+                            <span class="text-[10px] bg-gold-500/20 text-gold-400 font-semibold px-2.5 py-1 rounded-lg border border-gold-500/30 uppercase tracking-wider">
+                                ${item.kategori}
+                            </span>
+                            <button onclick="deleteKajianItem('${item.id}')" class="text-gray-400 hover:text-rose-400 p-1 rounded transition text-xs" title="Hapus Agenda">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+
+                        <h4 class="text-base font-bold text-white group-hover:text-gold-400 transition mb-2">${item.judul}</h4>
+                        
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center text-gray-200 font-medium">
+                                <i class="fa-solid fa-user-tie text-gold-500 w-5"></i>
+                                <span>${item.pemateri}</span>
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i class="fa-regular fa-clock text-gold-500 w-5"></i>
+                                <span>${item.waktu}</span>
+                            </div>
+                            <div class="flex items-center text-gray-400 text-[11px]">
+                                <i class="fa-solid fa-users text-gold-500/80 w-5"></i>
+                                <span>Target: ${item.peserta}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-dark-700 flex items-center justify-between text-[11px] text-gray-400">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-gold-500"></i> Ruang Utama Masjid</span>
+                        <span class="text-gold-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-circle text-[6px] text-emerald-400"></i> Rutin</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ------------------ LOGO UPLOAD & CLOUD SYNC LOGIC ------------------
+        async function handleLogoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                await showCustomAlert("Harap pilih berkas gambar (JPG, PNG, WebP, dll).", "Format Berkas Salah", "error");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const img = new Image();
+                img.onload = async function() {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 350;
+                    const MAX_HEIGHT = 350;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    const optimizedBase64 = canvas.toDataURL('image/jpeg', 0.8);
+                    updateLogoElements(optimizedBase64);
+
+                    if (currentUser && db) {
+                        updateSyncBadge('syncing', 'Menyimpan logo ke semua perangkat...');
+                        try {
+                            const logoDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'dkm_shared_state', 'masjid_branding');
+                            await setDoc(logoDocRef, {
+                                logoBase64: optimizedBase64,
+                                updatedAt: new Date().toISOString()
+                            });
+                            updateSyncBadge('connected', 'Tersinkronisasi ke semua perangkat');
+                            showToast("Foto logo diperbarui di semua perangkat!");
+                        } catch (err) {
+                            console.error("Gagal mengunggah logo:", err);
+                            updateSyncBadge('error', 'Gagal menyinkronkan logo');
+                            showCustomAlert("Ukuran gambar terlalu besar untuk disinkronkan.", "Gagal Menyimpan", "error");
+                        }
+                    }
+                };
+                img.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateLogoElements(src) {
+            const headerLogo = document.getElementById('header-logo-img');
+            const heroLogo = document.getElementById('hero-logo-img');
+            
+            if (headerLogo) headerLogo.src = src;
+            if (heroLogo) heroLogo.src = src;
+            
+            const footerLogos = document.querySelectorAll('footer img');
+            footerLogos.forEach(img => img.src = src);
+        }
+
+        // ------------------ JADWAL JUM'AT MANAGEMENT LOGIC ------------------
+        function saveJumatData() {
+            sortJumatData();
+            renderJumatCards();
+            syncCollectionToCloud('jumat_schedule', jumatDataList);
+        }
+
+        function sortJumatData() {
+            jumatDataList.sort((a, b) => new Date(a.tanggal) - new Date(b.tanggal));
+        }
+
+        async function handleAddJumatManual(e) {
+            e.preventDefault();
+            const tanggal = document.getElementById('input-tanggal').value;
+            const khatib = document.getElementById('input-khatib').value;
+            const imam = document.getElementById('input-imam').value;
+            const muadzin = document.getElementById('input-muadzin').value;
+
+            if (!tanggal || !khatib || !imam || !muadzin) {
+                await showCustomAlert("Harap lengkapi semua kolom form!", "Data Belum Lengkap", "error");
+                return;
+            }
+
+            const newItem = {
+                id: 'manual_' + Date.now(),
+                tanggal,
+                khatib,
+                imam,
+                muadzin
+            };
+
+            jumatDataList.push(newItem);
+            saveJumatData();
+            e.target.reset();
+
+            showToast("Jadwal Petugas Jum'at Tersimpan di Semua Perangkat!");
+        }
+
+        async function clearAllJumatData() {
+            if (jumatDataList.length === 0) {
+                showToast("Tidak ada data jadwal untuk dihapus.");
+                return;
+            }
+            const confirmed = await showCustomConfirm("Apakah Anda yakin ingin MENGHAPUS SEMUA data jadwal petugas Jum'at di semua perangkat?", "Hapus Semua Jadwal");
+            if (confirmed) {
+                jumatDataList = [];
+                saveJumatData();
+                showToast("Semua data jadwal petugas berhasil dihapus.");
+            }
+        }
+
+        async function resetDefaultJumatData() {
+            const confirmed = await showCustomConfirm("Apakah Anda yakin ingin mengembalikan data jadwal Jum'at ke pengaturan bawaan di semua perangkat?", "Reset Bawaan");
+            if (confirmed) {
+                jumatDataList = [...defaultJumatData];
+                saveJumatData();
+                showToast("Data dikembalikan ke pengaturan default.");
+            }
+        }
+
+        function filterJumatCards() {
+            const filterText = document.getElementById('search-jumat-input').value;
+            renderJumatCards(filterText);
+        }
+
+        function renderJumatCards(filterText = '') {
+            const container = document.getElementById('jumat-cards-grid');
+            const bannerContainer = document.getElementById('jumat-ini-banner');
+            const countEl = document.getElementById('jumat-count');
+            
+            if (!container || !bannerContainer || !countEl) return;
+
+            container.innerHTML = '';
+            bannerContainer.innerHTML = '';
+
+            const searchKey = filterText.toLowerCase().trim();
+            const filtered = jumatDataList.filter(item => {
+                if (!item) return false;
+                const khatib = (item.khatib || '').toLowerCase();
+                const imam = (item.imam || '').toLowerCase();
+                const muadzin = (item.muadzin || '').toLowerCase();
+                const tanggal = (item.tanggal || '').toLowerCase();
+
+                return khatib.includes(searchKey) ||
+                       imam.includes(searchKey) ||
+                       muadzin.includes(searchKey) ||
+                       tanggal.includes(searchKey);
+            });
+
+            countEl.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-dark-900 rounded-2xl border border-dark-700">
+                        <i class="fa-solid fa-calendar-xmark text-4xl text-gray-600 mb-3"></i>
+                        <p class="text-gray-400 text-sm">Tidak ada data jadwal petugas Jum'at yang cocok.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            let nearestTodayId = null;
+            let minDiff = Infinity;
+
+            jumatDataList.forEach(item => {
+                const itemDate = new Date(item.tanggal);
+                itemDate.setHours(0,0,0,0);
+                const diff = itemDate - today;
+                if (diff >= -86400000 && diff < minDiff) {
+                    minDiff = diff;
+                    nearestTodayId = item.id;
+                }
+            });
+
+            filtered.forEach(item => {
+                const isJumatIni = (item.id === nearestTodayId);
+                const dateObj = new Date(item.tanggal);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const dateFormatted = dateObj.toLocaleDateString('id-ID', options);
+
+                if (isJumatIni && !searchKey) {
+                    bannerContainer.innerHTML = `
+                        <div class="bg-gradient-to-r from-dark-900 via-dark-800 to-dark-900 rounded-3xl p-6 sm:p-8 border-2 border-gold-500 shadow-2xl relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-gold-500 text-dark-900 font-extrabold text-xs px-4 py-1.5 rounded-bl-2xl shadow-md uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-dark-900 animate-ping"></span> JUM'AT INI / PEKAN TERDEKAT
+                            </div>
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                                <div class="lg:col-span-8">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gold-400 font-bold text-xs uppercase tracking-widest"><i class="fa-regular fa-calendar-check me-1"></i> ${dateFormatted}</span>
+                                        <button onclick="deleteJumatItem('${item.id}')" class="text-rose-400 hover:text-rose-300 p-1.5 text-xs bg-rose-500/10 hover:bg-rose-500/20 rounded-lg border border-rose-500/20 transition flex items-center gap-1 cursor-pointer" title="Hapus Jadwal Utama Ini">
+                                            <i class="fa-solid fa-trash"></i> Hapus Petugas Utama
+                                        </button>
+                                    </div>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">Petugas Shalat Jum'at Utama</h3>
+                                    
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-xs">
+                                        <div class="bg-dark-900 p-3 rounded-xl border border-gold-500/20">
+                                            <span class="text-gray-400 block text-[10px] uppercase">Khatib</span>
+                                            <span class="text-white font-bold text-sm block mt-0.5">${item.khatib}</span>
+                                        </div>
+                                        <div class="bg-dark-900 p-3 rounded-xl border border-gold-500/20">
+                                            <span class="text-gray-400 block text-[10px] uppercase">Imam</span>
+                                            <span class="text-white font-bold text-sm block mt-0.5">${item.imam}</span>
+                                        </div>
+                                        <div class="bg-dark-900 p-3 rounded-xl border border-gold-500/20">
+                                            <span class="text-gray-400 block text-[10px] uppercase">Muadzin & Bilal</span>
+                                            <span class="text-gold-400 font-semibold block mt-0.5">${item.muadzin}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                                    <div class="text-center p-4 bg-dark-900 rounded-2xl border border-gold-500/30 w-full sm:w-auto">
+                                        <i class="fa-solid fa-kaaba text-4xl text-gold-500 mb-2"></i>
+                                        <span class="block text-xs font-bold text-white">Masjid Nashrul Fattah</span>
+                                        <span class="block text-[10px] text-gray-400">Alam Hijau Jember</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                const card = document.createElement('div');
+                card.className = `bg-dark-900 rounded-2xl p-5 border ${isJumatIni ? 'border-gold-500 ring-1 ring-gold-500' : 'border-gold-500/20'} shadow-lg hover:border-gold-500/60 transition flex flex-col justify-between relative`;
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3 pb-3 border-b border-dark-700">
+                            <div>
+                                <span class="text-[10px] text-gold-400 font-bold uppercase tracking-wider block">${dateFormatted}</span>
+                                <h4 class="text-base font-bold text-white mt-0.5">${item.khatib}</h4>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                ${isJumatIni ? `<span class="text-[9px] bg-gold-500 text-dark-900 font-extrabold px-2 py-0.5 rounded me-1">UTAMA</span>` : ''}
+                                <button onclick="deleteJumatItem('${item.id}')" class="text-gray-400 hover:text-rose-400 p-1.5 hover:bg-rose-500/10 rounded-lg transition text-xs" title="Hapus Petugas Ini">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Imam:</span>
+                                <span class="text-white font-medium">${item.imam}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Muadzin:</span>
+                                <span class="text-gold-400 font-medium">${item.muadzin}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-dark-800 text-[10px] text-gray-500 flex justify-between items-center">
+                        <span><i class="fa-solid fa-mosque me-1"></i> DKM Nashrul Fattah</span>
+                        <span class="font-mono">${item.tanggal}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function deleteJumatItem(id) {
+            const confirmed = await showCustomConfirm("Hapus jadwal petugas Jum'at ini dari semua perangkat?", "Hapus Jadwal");
+            if (confirmed) {
+                jumatDataList = jumatDataList.filter(x => x.id !== id);
+                saveJumatData();
+                showToast("Jadwal berhasil dihapus.");
+            }
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            document.getElementById('drop-zone').classList.add('border-gold-400', 'bg-dark-700');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('drop-zone').classList.remove('border-gold-400', 'bg-dark-700');
+        }
+
+        function handleFileDrop(e) {
+            e.preventDefault();
+            handleDragLeave(e);
+            const files = e.dataTransfer.files;
+            if (files.length > 0) processUploadedFile(files[0]);
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            if (files.length > 0) processUploadedFile(files[0]);
+        }
+
+        function processUploadedFile(file) {
+            const fileName = file.name.toLowerCase();
+            const reader = new FileReader();
+
+            reader.onload = async function(evt) {
+                const content = evt.target.result;
+                try {
+                    if (fileName.endsWith('.json')) {
+                        const parsed = JSON.parse(content);
+                        if (Array.isArray(parsed)) {
+                            parsed.forEach((item, idx) => {
+                                jumatDataList.push({
+                                    id: 'up_' + Date.now() + '_' + idx,
+                                    tanggal: item.tanggal || new Date().toISOString().split('T')[0],
+                                    khatib: item.khatib || 'Ust. H. Anonim',
+                                    imam: item.imam || item.khatib || 'Ust. H. Anonim',
+                                    muadzin: item.muadzin || 'Bpk. Suryo'
+                                });
+                            });
+                            saveJumatData();
+                            showToast(`Berhasil mengimpor & menyinkronkan ${parsed.length} data JSON!`);
+                        }
+                    } else {
+                        const lines = content.split(/\r\n|\n/);
+                        let count = 0;
+                        lines.forEach((line, index) => {
+                            if (index === 0 && line.toLowerCase().includes('tanggal')) return;
+                            const cols = line.split(',');
+                            if (cols.length >= 2) {
+                                jumatDataList.push({
+                                    id: 'csv_' + Date.now() + '_' + index,
+                                    tanggal: cols[0]?.trim() || new Date().toISOString().split('T')[0],
+                                    khatib: cols[1]?.trim() || 'Ust. H. Anonim',
+                                    imam: cols[2]?.trim() || cols[1]?.trim() || 'Ust. H. Anonim',
+                                    muadzin: cols[3]?.trim() || 'Bpk. Muadzin'
+                                });
+                                count++;
+                            }
+                        });
+                        saveJumatData();
+                        showToast(`Berhasil mengimpor & menyinkronkan ${count} baris CSV!`);
+                    }
+                } catch(err) {
+                    await showCustomAlert("Gagal memproses file. Pastikan format CSV/JSON sesuai contoh template.", "Format Salah", "error");
+                }
+            };
+
+            reader.readAsText(file);
+        }
+
+        function downloadSampleCSV() {
+            const csvContent = "data:text/csv;charset=utf-8," + 
+                "tanggal,khatib,imam,muadzin\n" +
+                "2026-12-11,Ust. Ahmad Fauzi,Ust. Ahmad Fauzi,Bpk. Suryo\n" +
+                "2026-12-18,KH. Syamsul Arifin,KH. Syamsul Arifin,Sdr. Rizky";
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "template_petugas_jumat_mnf.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function exportJumatJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(jumatDataList, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "jadwal_petugas_jumat_mnf.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-14 right-4 bg-gold-500 text-dark-900 font-extrabold px-5 py-3 rounded-xl shadow-2xl z-50 transition border border-white flex items-center space-x-2 text-xs sm:text-sm';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-lg"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // ------------------ PRAYER TIMES & UI LOGIC ------------------
+        function updateCurrentDayName() {
+            const days = ['Ahad', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];
+            const today = new Date();
+            const dayName = days[today.getDay()];
+            const el = document.getElementById('current-day-name');
+            if (el) {
+                el.textContent = `${dayName} (Petugas Shalat Berjalan)`;
+            }
+        }
+
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-link');
+
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        const target = link.getAttribute('href')?.replace('#', '');
+                        if (target) switchView(target);
+                        menu.classList.add('hidden');
+                    });
+                });
+            }
+        }
+
+        async function fetchPrayerTimesData() {
+            const loading = document.getElementById('prayer-loading');
+            const grid = document.getElementById('prayer-times-grid');
+            if (loading) loading.classList.remove('hidden');
+            if (grid) grid.classList.add('hidden');
+
+            const now = new Date();
+            const dateStr = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
+            
+            let apiUrl = '';
+            if (userCoords) {
+                apiUrl = `https://api.aladhan.com/v1/timings/${dateStr}?latitude=${userCoords.lat}&longitude=${userCoords.lng}&method=20`;
+            } else {
+                apiUrl = `https://api.aladhan.com/v1/timingsByCity/${dateStr}?city=${encodeURIComponent(currentCity)}&country=${encodeURIComponent(currentCountry)}&method=20`;
+            }
+
+            try {
+                const response = await fetch(apiUrl);
+                const result = await response.json();
+
+                if (result.code === 200 && result.data) {
+                    const timings = result.data.timings;
+                    prayerTimesData = {
+                        Imsak: timings.Imsak,
+                        Fajr: timings.Fajr,
+                        Sunrise: timings.Sunrise,
+                        Dhuhr: timings.Dhuhr,
+                        Asr: timings.Asr,
+                        Maghrib: timings.Maghrib,
+                        Isha: timings.Isha
+                    };
+
+                    const hijri = result.data.date.hijri;
+                    const hijriFormatted = `${hijri.day} ${hijri.month.en} ${hijri.year} H`;
+                    const hijriEl = document.getElementById('current-date-hijri');
+                    if (hijriEl) hijriEl.textContent = `${hijriFormatted} (${hijri.designation.expanded})`;
+
+                    renderPrayerTimes();
+                    calculateNextPrayer(new Date());
+                } else {
+                    throw new Error("Gagal mengambil data dari API");
+                }
+            } catch (err) {
+                prayerTimesData = {
+                    Imsak: "03:36",
+                    Fajr: "03:46",
+                    Sunrise: "05:04",
+                    Dhuhr: "11:21",
+                    Asr: "14:41",
+                    Maghrib: "17:34",
+                    Isha: "18:46"
+                };
+                const hijriEl = document.getElementById('current-date-hijri');
+                if (hijriEl) hijriEl.textContent = "Jember, Jawa Timur | Data Mode Standby";
+                renderPrayerTimes();
+            } finally {
+                if (loading) loading.classList.add('hidden');
+                if (grid) grid.classList.remove('hidden');
+            }
+        }
+
+        function renderPrayerTimes() {
+            const container = document.getElementById('prayer-times-grid');
+            if (!container) return;
+            container.innerHTML = '';
+
+            prayerKeys.forEach((key) => {
+                const name = prayerDisplayNames[key];
+                const time = prayerTimesData[key] || "--:--";
+                const isSunrise = key === 'Sunrise';
+
+                const card = document.createElement('div');
+                card.id = `prayer-card-${key}`;
+                card.className = `bg-dark-900 border border-gold-500/20 rounded-2xl p-3 sm:p-4 text-center transition duration-300 shadow-md relative overflow-hidden group`;
+                
+                card.innerHTML = `
+                    <div class="text-gold-500 mb-1 sm:mb-2 text-lg sm:text-2xl group-hover:scale-110 transition">
+                        <i class="${prayerIcons[key]}"></i>
+                    </div>
+                    <div class="text-[10px] sm:text-xs text-gray-400 uppercase font-semibold tracking-wider">${name}</div>
+                    <div class="text-lg sm:text-2xl font-bold font-mono ${isSunrise ? 'text-amber-200/80' : 'text-white'} mt-0.5 sm:mt-1">${time}</div>
+                    <span class="active-badge hidden absolute top-2 right-2 flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
+                    </span>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function startLiveClock() {
+            setInterval(() => {
+                const now = new Date();
+                
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                const clockEl = document.getElementById('live-clock');
+                if (clockEl) clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const gregEl = document.getElementById('gregorian-date');
+                if (gregEl) gregEl.textContent = now.toLocaleDateString('id-ID', options);
+
+                if (Object.keys(prayerTimesData).length > 0) {
+                    calculateNextPrayer(now);
+                }
+            }, 1000);
+        }
+
+        function calculateNextPrayer(now) {
+            const currentTimeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+            const activeList = prayerKeys.filter(k => k !== 'Sunrise');
+            let foundNext = null;
+
+            for (let i = 0; i < activeList.length; i++) {
+                const key = activeList[i];
+                if (prayerTimesData[key] > currentTimeStr) {
+                    foundNext = key;
+                    break;
+                }
+            }
+
+            if (!foundNext) foundNext = "Fajr";
+            nextPrayerKey = foundNext;
+
+            const nameEl = document.getElementById('next-prayer-name');
+            if (nameEl) nameEl.textContent = prayerDisplayNames[nextPrayerKey];
+            
+            const targetTimeStr = prayerTimesData[nextPrayerKey] || "--:--";
+            const targetEl = document.getElementById('next-prayer-time-display');
+            if (targetEl) targetEl.textContent = `Jam Target: ${targetTimeStr} WIB`;
+
+            prayerKeys.forEach(k => {
+                const card = document.getElementById(`prayer-card-${k}`);
+                if (card) {
+                    card.classList.remove('ring-2', 'ring-gold-500', 'bg-dark-700', 'shadow-gold-500/20');
+                    const badge = card.querySelector('.active-badge');
+                    if (badge) badge.classList.add('hidden');
+                }
+            });
+
+            const currentActiveCard = document.getElementById(`prayer-card-${nextPrayerKey}`);
+            if (currentActiveCard) {
+                currentActiveCard.classList.add('ring-2', 'ring-gold-500', 'bg-dark-700', 'shadow-gold-500/20');
+                const badge = currentActiveCard.querySelector('.active-badge');
+                if (badge) badge.classList.remove('hidden');
+            }
+
+            if (!prayerTimesData[nextPrayerKey]) return;
+            const [pHours, pMinutes] = prayerTimesData[nextPrayerKey].split(':').map(Number);
+            const targetTime = new Date(now);
+            targetTime.setHours(pHours, pMinutes, 0, 0);
+
+            if (targetTime < now) {
+                targetTime.setDate(targetTime.getDate() + 1);
+            }
+
+            const diffMs = targetTime - now;
+            const diffHrs = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const diffSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+            const timerEl = document.getElementById('countdown-timer');
+            if (timerEl) {
+                timerEl.textContent = `${String(diffHrs).padStart(2, '0')}:${String(diffMins).padStart(2, '0')}:${String(diffSecs).padStart(2, '0')}`;
+            }
+
+            if (diffHrs === 0 && diffMins === 0 && diffSecs === 0 && !hasAlertedThisPrayer) {
+                triggerAdzanAlert(prayerDisplayNames[nextPrayerKey]);
+                hasAlertedThisPrayer = true;
+                setTimeout(() => { hasAlertedThisPrayer = false; }, 60000);
+            }
+        }
+
+        function onCityChange(val) {
+            userCoords = null;
+            const parts = val.split(',');
+            currentCity = parts[0];
+            currentCountry = parts[1] || 'Indonesia';
+            const locEl = document.getElementById('current-location-text');
+            if (locEl) locEl.innerHTML = `<i class="fa-solid fa-location-dot me-1"></i> ${currentCity}, Indonesia`;
+            fetchPrayerTimesData();
+        }
+
+        async function getUserLocation() {
+            if (navigator.geolocation) {
+                const locEl = document.getElementById('current-location-text');
+                if (locEl) locEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin me-1"></i> Mendeteksi Lokasi GPS...`;
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userCoords = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        if (locEl) locEl.innerHTML = `<i class="fa-solid fa-location-crosshairs text-emerald-400 me-1"></i> Lokasi Terdeteksi GPS (${userCoords.lat.toFixed(2)}, ${userCoords.lng.toFixed(2)})`;
+                        fetchPrayerTimesData();
+                    },
+                    async () => {
+                        await showCustomAlert("Gagal mendeteksi lokasi otomatis. Menampilkan Jadwal Shalat Kab. Jember.", "Informasi GPS");
+                        onCityChange("Jember,ID");
+                    }
+                );
+            } else {
+                await showCustomAlert("Geolocation tidak didukung pada browser ini.", "Informasi");
+            }
+        }
+
+        function toggleAdzanAudio() {
+            isAudioEnabled = !isAudioEnabled;
+            const btnText = document.getElementById('adzan-status-text');
+            const icon = document.getElementById('adzan-icon');
+            if (isAudioEnabled) {
+                if (btnText) btnText.textContent = "Audio Adzan: AKTIF";
+                if (icon) icon.className = "fa-solid fa-volume-high text-gold-500";
+            } else {
+                if (btnText) btnText.textContent = "Audio Adzan: MUTE";
+                if (icon) icon.className = "fa-solid fa-volume-xmark text-gray-500";
+            }
+        }
+
+        function triggerAdzanAlert(prayerName) {
+            if (isAudioEnabled) {
+                try {
+                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.5, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 3);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 3);
+                } catch (e) {}
+            }
+
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-24 right-4 z-50 bg-gold-500 text-dark-900 font-extrabold px-6 py-4 rounded-2xl shadow-2xl border-2 border-white flex items-center space-x-3 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-mosque text-2xl"></i> <div><span>Telah Masuk Waktu Shalat ${prayerName}!</span><span class="block text-xs font-normal">Mari Tunaikan Shalat Berjamaah di Masjid Nashrul Fattah</span></div>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 8000);
+        }
+
+        function openInfaqModal() {
+            const modal = document.getElementById('infaq-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeInfaqModal() {
+            const modal = document.getElementById('infaq-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('Nomor Rekening Berhasil Disalin!');
+        }
+
+        // Ekspos fungsi ke window agar atribut onclick di HTML dapat memanggilnya dari script type="module"
+        Object.assign(window, {
+            switchView,
+            handleLogoUpload,
+            openInfaqModal,
+            closeInfaqModal,
+            copyToClipboard,
+            getUserLocation,
+            onCityChange,
+            toggleAdzanAudio,
+            fetchPrayerTimesData,
+            handleAddKajian,
+            deleteKajianItem,
+            renderKajianCards,
+            handleAddAgenda,
+            deleteAgendaItem,
+            renderAgendaCards,
+            handleFinDragOver,
+            handleFinDragLeave,
+            handleFinFileDrop,
+            handleFinFileSelect,
+            downloadFinanceTemplate,
+            clearAllFinanceData,
+            handleAddFinance,
+            renderFinanceTable,
+            deleteFinanceItem,
+            handleDragOver,
+            handleDragLeave,
+            handleFileDrop,
+            handleFileSelect,
+            downloadSampleCSV,
+            clearAllJumatData,
+            resetDefaultJumatData,
+            handleAddJumatManual,
+            filterJumatCards,
+            exportJumatJSON,
+            deleteJumatItem
+        });
+    </script>
+</body>
+</html>
